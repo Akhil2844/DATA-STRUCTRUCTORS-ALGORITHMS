@@ -1,55 +1,45 @@
 #include<iostream>
 using namespace std;
 
-// void print(int* arr,int n)
-// {
-//     cout<<"Size of array is "<<n<<endl;
-//     for(int i=0;i<n;i++)
-//     {
-//         cout<<arr[i]<<" ";
-//     }
-//     cout<<endl;
-// }
+void print(int arr[], int s, int e) {
 
-bool linearSearch(int*arr,int size,int key)
+    for(int i=s; i<=e; i++) {
+        cout << arr[i] << " ";
+    } cout << endl;
+}
+
+bool binarySearch(int *arr, int s, int e , int k ) 
 {
-    // print(arr,size);
-
-    
-    // base case
-    if(size==0)
-    {
+    print(arr,s,e);
+    //base case
+    //element not found
+    if(s>e)
         return false;
 
-    }
+    int mid = s + (e-s)/2;
+    cout<<"Value of mid is "<<arr[mid]<<endl;
 
-
-     // recursive call
-     if(arr[0]==key)
-     {
+    //element found
+    if(arr[mid] == k)
         return true;
-     }   
-     else
-     {
-        int remainingPart=linearSearch(arr+1,size-1,key);
-        return remainingPart;
-     }
+
+    if(arr[mid] < k) {
+        return binarySearch(arr, mid+1, e, k);
+    }
+    else{
+        return binarySearch(arr, s, mid-1, k);
+    }
 }
-int main()
-{
-    int arr[5]={3,5,2,1,6};
-    int key=9;
 
-    int ans=linearSearch(arr,5,key);
 
-    if(ans)
-    {
-        cout<<"Key is Found "<<endl;
-    }
-    else
-    {
-        cout<<"Key is not Found "<<endl;
-    }
-   
-   return 0;
-    }
+int main() {
+
+    int arr[11] = {2,4,6,10,14,18,22,38,49,55,222};
+    int size = 11;
+    int key = 222;
+
+    cout << "Present or not " << binarySearch(arr, 0, size-1, key) << endl;
+
+    return 0;
+}
+
