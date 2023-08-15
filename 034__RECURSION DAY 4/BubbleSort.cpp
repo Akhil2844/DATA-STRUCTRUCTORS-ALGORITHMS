@@ -3,6 +3,7 @@ using namespace std;
 
 void bubbleSort(int*arr,int n)
 {
+    
     // Base case
     if(n==0||n==1)
     {
@@ -12,9 +13,12 @@ void bubbleSort(int*arr,int n)
     //processing 1 case check krna h  ---  largest element ko end m rkhna h
     for(int i=0;i<n-1;i++)
     {
+    
         if(arr[i]>arr[i+1])
         {
+        
             swap(arr[i],arr[i+1]);
+          
         }
     }
 

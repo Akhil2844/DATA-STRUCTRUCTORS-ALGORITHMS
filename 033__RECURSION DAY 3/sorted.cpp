@@ -23,7 +23,7 @@ bool isSorted(int*arr ,int n)
 int main()
 {
 
-    int arr[5]={1,4,3,5,8};
+    int arr[5]={1,2,3,5,8};
     
     int ans=isSorted(arr,5);
 

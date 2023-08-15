@@ -1,0 +1,1 @@
+   cout<<"Present or not "<<binarySearch(arr,0,6,key);

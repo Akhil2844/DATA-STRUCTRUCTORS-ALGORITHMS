@@ -48,17 +48,17 @@ int main()
 
     int arr[6]={2,4,6,10,14,18};
     int key=18;
-    // int ans=binarySearch(arr,0,6,key);
+    int ans=binarySearch(arr,0,6,key);
 
-    // if(ans)
-    // {
-    //     cout<<"Key is Present "<<endl;
-    // }
-    // else
-    // {
-    //     cout<<"Key is not Present "<<endl;
-    // }
+    if(ans)
+    {
+        cout<<"Key is Present "<<endl;
+    }
+    else
+    {
+        cout<<"Key is not Present "<<endl;
+    }
 
-   cout<<"Present or not "<<binarySearch(arr,0,6,key);
+//    cout<<"Present or not "<<binarySearch(arr,0,6,key);
     return 0;
 }

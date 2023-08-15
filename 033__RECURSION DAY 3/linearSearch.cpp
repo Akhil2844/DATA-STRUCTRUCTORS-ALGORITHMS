@@ -29,7 +29,7 @@ int main() {
 
     int arr[5] = {3,5,1,2,6};
     int size = 5;
-    int key = 6;
+    int key = 2;
     bool ans = linearSearch(arr, size, key);
 
     if(ans ){
