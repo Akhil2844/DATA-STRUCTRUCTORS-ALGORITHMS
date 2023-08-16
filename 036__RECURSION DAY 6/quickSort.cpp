@@ -27,7 +27,7 @@ int j=e;
 
 while(i<pivotIndex && j>pivotIndex)
 {
-    while(arr[i]<pivot)
+    while(arr[i]<=pivot)
     {
         i++;
         
