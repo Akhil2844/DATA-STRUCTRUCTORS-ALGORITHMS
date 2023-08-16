@@ -13,7 +13,7 @@ void solve(vector<int> nums,vector<int>output,int index,vector<vector<int>>&ans)
     }
 
     //exclude
-    solve(nums,output,index+1,ans);
+    solve(nums,output,index+1,ans); 
 
     //include
     int element=nums[index];
