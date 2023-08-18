@@ -91,17 +91,22 @@ int main()
 
   char name[7]="Akhilk";
   hero1.setName(name);
-  hero1.print();
+//   hero1.print();/
 
 
 //   default copy constructor 
 Hero hero2(hero1);
 // Hero hero2=hero1;
 
-hero2.print();
+// hero2.print();
 
 hero1.name[0]='G';
 
+hero1.print();
+hero2.print();
+
+// assignemnt operator
+hero1=hero2;
 hero1.print();
 hero2.print();
 
