@@ -26,6 +26,7 @@ class Human
     }
 };
 
+// Multiple Inheritance
 class Hybrid:public Animal,public Human
 {
 
@@ -37,6 +38,6 @@ int main()
     Hybrid d1;
     d1.bark();
     d1.speak();
-    
+
     return 0;
 }
