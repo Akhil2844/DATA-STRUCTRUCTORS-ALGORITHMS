@@ -15,35 +15,88 @@ class  LinkedListNode
     }
 };
 
-    LinkedListNode* reverseLinkedList(LinkedListNode* &head)
+
+                // ***************   Iterative method************
+
+//     LinkedListNode* reverseLinkedList(LinkedListNode* &head)
+// {
+//      if(head==NULL||head->next==NULL)
+//      {
+//         return head;
+//      }
+
+
+// LinkedListNode* prev=NULL;
+// LinkedListNode* curr=head;
+// LinkedListNode* forward=NULL;
+
+// while(curr!=NULL)
+// {
+//     forward=curr->next;
+//     curr->next=prev;
+//     prev=curr;
+//     curr=forward;
+// }
+// return prev;
+// }
+
+
+                // **********Recursive method***************
+
+// void reverse(LinkedListNode* &head,LinkedListNode* curr, LinkedListNode*prev)
+// {
+   
+//    // base case
+//    if(curr==NULL)
+//    {
+//     head=prev;
+//     return ;
+//    }
+
+//    LinkedListNode*forward=curr->next;
+//    reverse(head,forward,curr);
+//    curr->next=prev;
+
+// }
+
+// LinkedListNode* reverseLinkedList(LinkedListNode* &head)
+// {
+//     LinkedListNode*prev=NULL;
+//     LinkedListNode*curr=head;
+//     reverse(head,curr,prev);
+//     return head;
+// }
+
+
+//   ***************APPROCH 3 ***************
+LinkedListNode* reverse1(LinkedListNode* head)
 {
-     if(head==NULL||head->next==NULL)
-     {
+    if(head==NULL||head->next==NULL)
+    {
         return head;
-     }
+    }
 
+    LinkedListNode*chotaHead=reverse1(head->next);
+    head->next->next=head;
+    head->next=NULL;
 
-LinkedListNode* prev=NULL;
-LinkedListNode* curr=head;
-LinkedListNode* forward=NULL;
+    return chotaHead;
 
-while(curr!=NULL)
-{
-    forward=curr->next;
-    curr->next=prev;
-    prev=curr;
-    curr=forward;
 }
-return prev;
+
+
+LinkedListNode* reverseLinkedList(LinkedListNode* head)
+{
+    reverse1(head);
 }
 
 
 int main()
 {
   // Create a linked list
-    LinkedListNode* head = new LinkedListNode(1);
-    head->next = new LinkedListNode(2);
-    head->next->next = new LinkedListNode(3);
+    LinkedListNode* head = new LinkedListNode(3);
+    head->next = new LinkedListNode(5);
+    head->next->next = new LinkedListNode(7);
 
     // Reverse the linked list
     LinkedListNode* reversedHead = reverseLinkedList(head);
