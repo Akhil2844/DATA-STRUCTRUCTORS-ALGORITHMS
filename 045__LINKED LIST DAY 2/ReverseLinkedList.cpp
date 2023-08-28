@@ -79,7 +79,6 @@ LinkedListNode* reverse1(LinkedListNode* head)
     LinkedListNode*chotaHead=reverse1(head->next);
     head->next->next=head;
     head->next=NULL;
-
     return chotaHead;
 
 }

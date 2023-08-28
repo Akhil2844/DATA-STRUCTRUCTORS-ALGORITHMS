@@ -18,68 +18,69 @@ class Node
     
 
     //  ***********APPROCH 1***************
-// int getlength(Node*head)
-// {
-//     int len=0;
-//     while(head!=NULL)
-//     {
-//         len++;
-//         head=head->next;
-//     }
-//     return len;
-// }
+int getlength(Node*head)
+{
+    int len=0;
+    while(head!=NULL)
+    {
+        len++;
+        head=head->next;
+    }
+    return len;
+}
 
-//  Node*findMiddle(Node*head)
-//   {
-//     int len=getlength(head);
-//     int ans=len/2;
+ Node*findMiddle(Node*head)
+  {
+    int len=getlength(head);
+    int ans=len/2;
 
-//     Node*temp=head;
-//     int cnt=0;
-//     while(cnt<ans)
-//     {
-//         temp=temp->next;
-//         cnt++;
-//     }
-//     return temp;
-//   }
+    Node*temp=head;
+    int cnt=0;
+    while(cnt<ans)
+    {
+        
+        cnt++;
+        temp=temp->next;
+    }
+    return temp;
+  }
 
 
 //    ************APPROCH 2************
-Node* findmiddle(Node* head)
-{
+// Node* findMiddle(Node* head)
+// {
     
-    if(head==NULL)
-    {
-        return NULL;
+//     if(head==NULL)
+//     {
+//         return NULL;
 
-    }
-    if(head->next==NULL)
-    {
-        return head;
-    }
-    // for 2 nodes
-    if (head->next->next == NULL)
-    {
-        return head->next;
-    }
+//     }
+//     if(head->next==NULL)
+//     {
+//         return head;
+//     }
+//     // for 2 nodes
+//     if (head->next->next == NULL)
+//     {
+//         return head->next;
+//     }
 
-    Node* slow = head;
-    Node* fast = head->next;
+//     Node* slow = head;
+//     Node* fast = head->next;
 
-    while (fast != NULL)
-    {
-        fast = fast->next;  // Move fast twice
-        slow = slow->next;        // Move slow once
+//     while (fast != NULL)
+//     {
+//         fast = fast->next;  // Move fast twice
+//         slow = slow->next;        // Move slow once
 
-       if(fast!=NULL)
-       {
-        fast=fast->next;
-       }   
-    }
+//        if(fast!=NULL)
+//        {
+//         fast=fast->next;
+//        }   
+//     }
 
-    return slow;
-}
+//     return slow;
+// }
 
 
 
@@ -92,11 +93,11 @@ int main()
     head->next->next=new Node(3);
     head->next->next->next=new Node(4);
     head->next->next->next->next=new Node(5);
-    head->next->next->next->next->next=new Node(6);
+    // head->next->next->next->next->next=new Node(6);
     
    
    // find middle
-   Node*MiddleNode=findmiddle(head);
+   Node*MiddleNode=findMiddle(head);
 
    cout<<MiddleNode->data<<endl;
 
