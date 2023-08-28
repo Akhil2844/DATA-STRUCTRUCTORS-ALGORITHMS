@@ -176,6 +176,31 @@ void deleteNode(Node* &head,Node* &tail,int position)
 
 }
 
+
+bool circularLinkedList(Node* head)
+{   
+    // empty list
+    if(head==NULL)
+    {
+        return true;
+    }
+
+    Node*temp=head->next;
+    while(temp!=NULL && temp!=head)
+    {
+        temp=temp->next;
+    }
+
+    if(temp==head)
+    {
+        return true;
+    }
+
+    return false;
+
+
+}
+
 int main()
 
 {
@@ -229,5 +254,14 @@ int main()
     cout<<"Head : "<<head->data<<endl;
     cout<<"Tail : "<<tail->data<<endl;
 
+
+      if(circularLinkedList(head))
+    {
+        cout<<"Linked list is circular in nature "<<endl;
+    }
+    else
+    {
+        cout<<"Linked list is not circular in nature "<<endl;
+    }
     return 0;
 }

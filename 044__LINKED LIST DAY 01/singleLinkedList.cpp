@@ -135,14 +135,39 @@ void DeleteNode(Node* &head,int position)
     }
 }
 
+// check whether linked list is circular or not
+bool circularLinkedList(Node* head)
+{   
+    // empty list
+    if(head==NULL)
+    {
+        return true;
+    }
+
+    Node*temp=head->next;
+    while(temp!=NULL && temp!=head)
+    {
+        temp=temp->next;
+    }
+
+    if(temp==head)
+    {
+        return true;
+    }
+
+    return false;
+
+
+}
+
 
 int main()
 {
 
     // created a new Node
     Node*node1=new Node(10);
-    cout<<node1->data<<endl;
-    cout<<node1->next<<endl;
+    // cout<<node1->data<<endl;
+    // cout<<node1->next<<endl;
 
     // head pointed to node 1
 
@@ -171,6 +196,15 @@ int main()
     print(head);
 
     DeleteNode(head,4);
-    print(head);
+     print(head);
+
+     if(circularLinkedList(head))
+    {
+        cout<<"Linked list is circular in nature "<<endl;
+    }
+    else
+    {
+        cout<<"Linked list is not circular in nature "<<endl;
+    }
     return 0;
 }

@@ -122,6 +122,30 @@ void DeleteNode(Node*&tail,int value)
 }
 
 
+bool circularLinkedList(Node* head)
+{   
+    // empty list
+    if(head==NULL)
+    {
+        return true;
+    }
+
+    Node*temp=head->next;
+    while(temp!=NULL && temp!=head)
+    {
+        temp=temp->next;
+    }
+
+    if(temp==head)
+    {
+        return true;
+    }
+
+    return false;
+
+
+}
+
 int main()
 {
 
@@ -130,8 +154,8 @@ int main()
     InsertatNode(tail,5,3);
     print(tail);
 
-    // InsertatNode(tail,3,9);
-    // print(tail);
+    InsertatNode(tail,3,5);
+    print(tail);
 
     // InsertatNode(tail,9,11);
     // print(tail);
@@ -142,7 +166,16 @@ int main()
     // InsertatNode(tail,6,15);
     // print(tail);
 
-    DeleteNode(tail,3);
-    print(tail);
+    // DeleteNode(tail,3);
+    // print(tail);
+
+    if(circularLinkedList(tail))
+    {
+        cout<<"Linked list is circular in nature "<<endl;
+    }
+    else
+    {
+        cout<<"Linked list is not circular in nature "<<endl;
+    }
     return 0;
 }
