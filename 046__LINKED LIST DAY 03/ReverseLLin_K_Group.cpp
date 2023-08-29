@@ -46,7 +46,7 @@ class Node
     Node*curr=head;
     Node*forward=NULL;
     int count=0;
-    while(curr!=NULL && count<k)
+    while(curr!=NULL && count<k )
     {
         forward=curr->next;
         curr->next=prev;
