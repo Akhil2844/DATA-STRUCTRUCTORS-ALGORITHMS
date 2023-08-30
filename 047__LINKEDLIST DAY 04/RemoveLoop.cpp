@@ -277,6 +277,7 @@ cout<<"loop is starting at a node is : "<<start->data<<endl;
 
 // remove of loop
 removeLoop(head);
+cout<<"After removing the loop "<<endl;
 print(head);
     return 0;
 }
