@@ -46,7 +46,7 @@ int main()
     while (!str.empty())
     {
         cout << str.top() << endl;
-        ;
+        
         str.pop();
     }
 
