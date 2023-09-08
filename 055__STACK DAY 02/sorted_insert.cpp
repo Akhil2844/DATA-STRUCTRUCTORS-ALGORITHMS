@@ -1,48 +1,46 @@
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 using namespace std;
 
-void sortedInsert(stack<int>&stack,int num)
+void sortedInsert(stack<int> &stack, int num)
 {
-  
-  // base case
-  if(stack.empty() || (!stack.empty())&&stack.top()<num)
-  {
-    stack.push(num);
-    return;
-  }
 
-  int n=stack.top();
-  stack.pop();
+    // base case
+    if (stack.empty() || (!stack.empty()) && stack.top() < num)
+    {
+        stack.push(num);
+        return;
+    }
 
-  // recursive call
-  sortedInsert(stack,num);
+    int n = stack.top();
+    stack.pop();
 
-  stack.push(n);
+    // recursive call
+    sortedInsert(stack, num);
 
+    stack.push(n);
 }
 
 void sortStack(stack<int> &stack)
 {
     // base case
-    if(stack.empty())
+    if (stack.empty())
     {
         return;
     }
 
-    int num=stack.top();
+    int num = stack.top();
     stack.pop();
 
     // recursive call
     sortStack(stack);
 
-    sortedInsert(stack,num);
-
+    sortedInsert(stack, num);
 }
 
 int main()
 {
-// create a stack
+    // create a stack
     stack<int> str;
     str.push(5);
     str.push(9);
@@ -57,7 +55,7 @@ int main()
     while (!str.empty())
     {
         cout << str.top() << endl;
-        
+
         str.pop();
     }
 
