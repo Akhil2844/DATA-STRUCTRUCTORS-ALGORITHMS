@@ -75,10 +75,10 @@ int main()
     Stack st(5);
     st.push(4);
     st.push(6);
-    st.push(38);
-    st.push(78);
-    st.push(4);
-    st.push(8);
+    // st.push(38);
+    // st.push(78);
+    // st.push(4);
+    // st.push(8);
 
     cout << "top element : " << st.peak() << endl;
     st.pop();

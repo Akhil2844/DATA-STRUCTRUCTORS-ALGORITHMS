@@ -60,9 +60,9 @@ vector<long long> printFirstNegativeInteger(long long int A[],
 int main()
 {
 
-    long long A[] = {2, -1, 5, -6, 0, -8, 3};
-    long long N = 7;
-    long long K = 3;
+    long long A[] = {2, -1, 5, -6,0, 0, -8, 3};
+    long long N = 8;
+    long long K = 2;
 
     vector<long long> result = printFirstNegativeInteger(A, N, K);
 

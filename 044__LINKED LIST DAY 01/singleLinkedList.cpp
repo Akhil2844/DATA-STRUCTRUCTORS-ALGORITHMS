@@ -29,7 +29,6 @@ class Node
 }
 
 
-};
 
 
 
@@ -41,15 +40,15 @@ void InsertAtTail(Node* &tail,int d)
     tail->next=temp;
     tail=temp;
 }
-void InsertAtHead(Node* &head,int d )
-{
-    // new node create
-    Node*temp=new Node(d);
-    temp->next=head;
-    head=temp;
+// void InsertAtHead(Node* &head,int d )
+// {
+//     // new node create
+//     Node*temp=new Node(d);
+//     temp->next=head;
+//     head=temp;
 
 
-}
+// }
 
 void print(Node*&head)
 {
@@ -62,40 +61,40 @@ void print(Node*&head)
    cout<<endl;
 }
 
-void InsertAtPosition(Node* &tail,Node* &head,int position,int d)
-{
+// void InsertAtPosition(Node* &tail,Node* &head,int position,int d)
+// {
 
-    // insert at start
+//     // insert at start
 
-if(position==1)
-{
-    InsertAtHead(head,d);
-    return;
-}
-
-
-    Node*temp=head;
-    int cnt=1;
-
-    while(cnt<position-1)
-    {
-    temp=temp->next;
-    cnt++;
-    }
-
-  // creating a node for d
-    Node*NodeToInsert=new Node(d);
-        NodeToInsert->next=temp->next;
-        temp->next=NodeToInsert;
+// if(position==1)
+// {
+//     InsertAtHead(head,d);
+//     return;
+// }
 
 
-// insert at end 
-if(temp->next==NULL)
-{
-    InsertAtTail(tail,d);
-    return;
-}
-}
+//     Node*temp=head;
+//     int cnt=1;
+
+//     while(cnt<position-1)
+//     {
+//     temp=temp->next;
+//     cnt++;
+//     }
+
+//   // creating a node for d
+//     Node*NodeToInsert=new Node(d);
+//         NodeToInsert->next=temp->next;
+//         temp->next=NodeToInsert;
+
+
+// // insert at end 
+// if(temp->next==NULL)
+// {
+//     InsertAtTail(tail,d);
+//     return;
+// }
+// }
 
 
 
@@ -173,26 +172,26 @@ int main()
 
     Node*head=node1;
     Node*tail=node1;
-
+    InsertAtTail(tail,10);
     // print(head);
     print(head);
 
     // InsertAtHead(head,12);
-    InsertAtHead(head,12);
+    // InsertAtHead(head,12);
 
 
     // print(head);
     print(head);
 
     // InsertAtHead(head,15);
-    InsertAtHead(head,15);
+    // InsertAtHead(head,15);
 
 
     // print(head);
     print(head);
 
 
-    InsertAtPosition(tail,head,3,22);
+    // InsertAtPosition(tail,head,3,22);
     print(head);
 
     DeleteNode(head,4);
@@ -207,4 +206,5 @@ int main()
         cout<<"Linked list is not circular in nature "<<endl;
     }
     return 0;
+}
 }
