@@ -17,57 +17,54 @@ public:
     }
 };
 
-bool searchInBST(BinaryTreeNode *root,int x)
+bool searchInBST(BinaryTreeNode *root, int x)
 {
 
     // ********  APPROCH 1***********
-// base case
-/*if(root==NULL)
-{
-    return false;
-}
+    // base case
+    /*if(root==NULL)
+    {
+        return false;
+    }
 
-if(root->data==x)
-{
-    return true;
-
-}
-if(root->data>x)
-{
-    searchInBST(root->left,x);
-}
-else
-{
-    searchInBST(root->right,x);
-}*/
-
-
-//***********APPROCH 2**********
-// base case
-BinaryTreeNode*temp=root;
-while(temp!=NULL)
-{
-    if(temp->data==x)
+    if(root->data==x)
     {
         return true;
+
     }
-    if(temp->data>x)
+    if(root->data>x)
     {
-        temp=temp->left;
+        searchInBST(root->left,x);
     }
     else
     {
-        temp=temp->right;
+        searchInBST(root->right,x);
+    }*/
+
+    //***********APPROCH 2**********
+    // base case
+    BinaryTreeNode *temp = root;
+    while (temp != NULL)
+    {
+        if (temp->data == x)
+        {
+            return true;
+        }
+        if (temp->data > x)
+        {
+            temp = temp->left;
+        }
+        else
+        {
+            temp = temp->right;
+        }
     }
 }
 
-
-
-}
-
-int main() {
+int main()
+{
     // Creating a binary search tree
-    BinaryTreeNode* root = new BinaryTreeNode(10);
+    BinaryTreeNode *root = new BinaryTreeNode(10);
     root->left = new BinaryTreeNode(5);
     root->right = new BinaryTreeNode(15);
     root->left->left = new BinaryTreeNode(3);
@@ -80,9 +77,12 @@ int main() {
     bool found = searchInBST(root, x);
 
     // Check if the element was found
-    if (found) {
+    if (found)
+    {
         cout << x << " found in the BST." << endl;
-    } else {
+    }
+    else
+    {
         cout << x << " not found in the BST." << endl;
     }
 

@@ -127,14 +127,108 @@ void postorder(Node *root)
     cout << root->data << " ";
 }
 
+
+Node* minValue(Node *root)
+{
+    Node*temp=root;
+    while(temp->left!=NULL)
+    {
+        temp=temp->left;
+    }
+    return temp;
+}
+
+Node* maxValue(Node *root)
+{
+    Node*temp=root;
+    while(temp->right!=NULL)
+    {
+        temp=temp->right;
+    }
+    return temp;
+}
+
+
+// ****************** DELETION *************
+Node*deleteFromBSTcode(Node*root,int x)
+{ 
+    // base case
+    if(root==NULL)
+    {
+        return root;
+    }
+
+    if(root->data==x)
+    {
+        // 0 Child
+        if(root->left==NULL && root->right==NULL)
+        {
+            delete root;
+            return NULL;
+        }
+
+        // 1 Child
+           
+        // left child
+         if(root->left!=NULL && root->right==NULL)
+         {
+            Node*temp=root->left;
+            delete root;
+            return temp;
+         }
+        // right child
+        if(root->right!=NULL && root->left==NULL)
+        {
+            Node*temp=root->right;
+            delete root;
+            return temp;
+        }
+
+
+        // 2 child
+       if(root->left!=NULL && root->right!=NULL)
+       {
+        // right pRT K liye
+
+        // int mini=minValue(root->right)->data;
+        // root->data=mini;
+        // root->right=deleteFromBSTcode(root->right,mini);
+        // return root;
+
+        // left part k liye
+
+        int maxi=maxValue(root->left)->data;
+        root->data=maxi;
+        root->left=deleteFromBSTcode(root->left,maxi);
+        return root;
+       }
+
+    }
+
+    else if(root->data>x)
+    {
+        // left part m jao
+        root->left=deleteFromBSTcode(root->left,x);
+        return root;
+    }
+
+    else
+    {
+        // right part  jao
+        root->right=deleteFromBSTcode(root->right,x);
+        return root;
+    }
+
+
+}
+
+
 int main()
 {
 
     Node *root = NULL;
 
-    cout << "Enter data to create BST : " << endl
-
-        ;
+    cout << "Enter data to create BST : " << endl;
 
     takeInput(root);
 
@@ -151,5 +245,28 @@ int main()
     cout << "Postorder Traversal is : " << endl;
     postorder(root);
 
+    cout<<endl<<"Minimum value is : "<<minValue(root)->data<<endl;
+
+    cout<<"Maximum value is : "<<maxValue(root)->data<<endl;
+
+// ************DELETION ************
+    deleteFromBSTcode(root,50);
+    
+  levelOrderTraversal(root);
+
+    cout << "Inorder Traversal is : " << endl;
+    inorder(root);
+    cout << endl;
+
+    cout << "preorder Traversal is : " << endl;
+    preorder(root);
+    cout << endl;
+
+    cout << "Postorder Traversal is : " << endl;
+    postorder(root);
+
+    cout<<endl<<"Minimum value is : "<<minValue(root)->data<<endl;
+
+    cout<<"Maximum value is : "<<maxValue(root)->data<<endl;
     return 0;
 }
