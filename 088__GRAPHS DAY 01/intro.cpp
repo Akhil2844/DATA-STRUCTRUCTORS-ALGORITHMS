@@ -54,7 +54,7 @@ int main()
         int u, v;
         cin >> u >> v;
         // creating an undirected graph
-        g.add_edge(u, v, 1);
+        g.add_edge(u, v, 0);
     }
 
     // printing graph
