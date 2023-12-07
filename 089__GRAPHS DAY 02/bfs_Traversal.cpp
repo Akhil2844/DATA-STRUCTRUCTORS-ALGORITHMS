@@ -18,6 +18,16 @@ void prepare_adjList(unordered_map<int,list<int>>&adjList,vector<pair<int,int>>&
     }
 }
 
+void printAdjList(const unordered_map<int, list<int>> &adjList) {
+    for (const auto &pair : adjList) {
+        cout << "Adjacency List for node " << pair.first << ": ";
+        for (int neighbor : pair.second) {
+            cout << neighbor << " ";
+        }
+        cout << endl;
+    }
+}
+
 void bfs(int node,unordered_map<int,list<int>>&adjList,vector<int>&ans,unordered_map<int,bool>&visited)
 {
     queue<int>q;
@@ -80,6 +90,14 @@ int main() {
 
     // Get BFS traversal order
     vector<int> bfsOrder = BfsTraversal(numVertices, edges);
+
+    // Create and print the adjacency list
+    unordered_map<int, list<int>> adjList;
+    prepare_adjList(adjList, edges);
+    
+    cout << "Adjacency List:" << endl;
+    printAdjList(adjList);
+
 
     // Output the BFS traversal order
     cout << "BFS Traversal Order:" << endl;
