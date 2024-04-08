@@ -1,4 +1,4 @@
- //   LOOPS
+gi //   LOOPS
 
 
 //  Q1 ---> PRINT 1 TO N NUMBERS
